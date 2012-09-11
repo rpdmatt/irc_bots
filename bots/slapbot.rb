@@ -3,19 +3,33 @@ require 'cinch'
 class SlapBot
   include Cinch::Plugin
 
-    match /slap (.+)/
+    match /slap (.+)/, method: :slap
+    match /heal (.+)/, method: :heal
 
     def initialize(*args)
       super
       @slaps = Hash.new
     end
 
-    def execute(m, name)
+    def slap(m, name)
       unless name == bot.nick
 	@slaps.has_key?(name) ? @slaps[name] -= 10 : @slaps[name] = 90
 	m.reply("** slaps #{name} **")
 	m.reply("** #{name}'s health is #{@slaps[name]} **")
-	Channel(@bot.channels.first).kick(name, "Too slapped up.") if @slaps[name] <= 0
+        if @slaps[name] <= 0
+	  Channel(@bot.channels.first).kick(name, "Too slapped up.")
+          @slaps.delete(name)
+        end
+      end
+    end
+
+    def heal(m, name)
+      unless name == m.user.nick
+	if @slaps.has_key?(name) && @slaps[name] < 100
+          @slaps[name] += 10
+	  m.reply("** heals #{name} **")
+	  m.reply("** #{name}'s health is #{@slaps[name]} **")
+        end
       end
     end
 
