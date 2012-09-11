@@ -34,11 +34,11 @@ class SlapBot
       end
     end
 
-    def hp(m, name)
-      if @slaps.has_key?(name)
-        m.reply("** #{name}'s hp is #{@slaps[name]} **")
+    def hp(m)
+      if @slaps.has_key?(m.user.to_s)
+        m.reply("** #{m.user}'s hp is #{@slaps[m.user.to_s]} **")
       else
-        m.reply("** #{name}'s hp is 100 **")
+        m.reply("** #{m.user}'s hp is 100 **")
       end
     end
 end
