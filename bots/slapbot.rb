@@ -5,6 +5,7 @@ class SlapBot
 
     match /slap (.+)/, method: :slap
     match /heal (.+)/, method: :heal
+    match /hp/, method: :hp
 
     def initialize(*args)
       super
@@ -33,4 +34,11 @@ class SlapBot
       end
     end
 
+    def hp(m, name)
+      if @slaps.has_key?(name)
+        m.reply("** #{name}'s hp is #{@slaps[name]} **")
+      else
+        m.reply("** #{name}'s hp is 100 **")
+      end
+    end
 end
