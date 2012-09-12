@@ -13,7 +13,7 @@ bot = Cinch::Bot.new do
     c.password = password
     c.nick = "link"
     c.channels = ["#alaris_villains"]
-    c.plugins.plugins = [GoogleBot, HelpBot, UrbanDictionary, TinyURL, SlapBot, CowsayBot]
+    c.plugins.plugins = [GoogleBot, HelpBot, UrbanDictionary, TinyURL, SlapBot, CowsayBot, OpBot]
   end
 
   ["hello", "hey", "hi", "howdy"].each do |greeting|
