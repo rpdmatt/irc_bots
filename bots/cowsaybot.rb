@@ -11,9 +11,9 @@ class CowsayBot
       m.reply(" " + "-" * phrase.length)
       m.reply("   \   ^__^")
       m.reply("    \  (oo)\_______")
-      m.reply("       (__)\       )\/\\")
-      m.reply("           ||----w |")
-      m.reply("           ||     ||")
+      m.reply("      (__)\       )\/\\")
+      m.reply("          ||----w |")
+      m.reply("          ||     ||")
     end
 
 end
