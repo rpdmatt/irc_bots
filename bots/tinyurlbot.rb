@@ -16,7 +16,7 @@ class TinyURL
   def listen(m)
     urls = URI.extract(m.message, "http")
     short_urls = urls.map { |url| shorten(url) }.compact
-    unless short_urls.empty?
+    unless short_urls.empty? || urls.length < 20
       m.reply "How about a shorter url?"
       m.reply short_urls.join(", ")
     end
