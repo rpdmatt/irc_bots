@@ -1,18 +1,13 @@
 require 'cinch'
+require './creds.rb'
 Dir["./bots/*.rb"].each { |file| require file }
-
-## Get login credentials for IRC
-file = File.open("creds.txt", "r")
-credentials = file.read.delete!("\n")
-username = credentials.split("::")[0]
-password = credentials.split("::")[1]
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.server = username
-    c.password = password
-    c.nick = "link"
-    c.channels = ["#alaris_villains"]
+    c.server = Creds.server
+    c.password = Creds.password
+    c.nick = Creds.nick
+    c.channels = Creds.channels
     c.plugins.plugins = [GoogleBot, HelpBot, UrbanDictionary, TinyURL, SlapBot, CowsayBot, OpBot, BeavisBot]
   end
 
