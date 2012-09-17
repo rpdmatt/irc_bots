@@ -13,6 +13,7 @@ class GoogleBot
     end
 
     def google(query)
+      query.gsub!(/\s/, "+")
       url = "http://www.google.com/search?q=#{CGI.escape(query)}"
       res = Nokogiri::HTML(open(url)).at("h3.r")
 
@@ -21,8 +22,8 @@ class GoogleBot
       link = link.slice(link.index("http")..link.index("&sa")-1)
       desc = res.at("./following::div").children.first.text
       rescue
-	"No results found"
+        "No results found"
       else
-	CGI.unescape_html "#{title} (#{link})"
+        CGI.unescape_html "#{title} (#{link})"
     end
 end
