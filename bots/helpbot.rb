@@ -12,6 +12,8 @@ class HelpBot
       m.reply("!heal [user] - Heal a user")
       m.reply("!hp - Get your current hp")
       m.reply("!cowsay [something] - Make a cow say something!")
+      m.reply("!beavis [something] - Make beavis say something!")
+      m.reply("!roulette - Play russian roulette!")
     end
 
 end
