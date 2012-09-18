@@ -25,7 +25,7 @@ class SlapBot
     end
 
     def heal(m, name)
-      if name != bot.nick && m.channel.has_user?(name)
+      if name != m.user.nick && m.channel.has_user?(name)
         if @slaps.has_key?(name.downcase) && @slaps[name.downcase] < 100
           @slaps[name.downcase] += 10
           m.reply("** heals #{name} **")
