@@ -40,10 +40,12 @@ class AsciiBot
     end
 
     def roll(m)
-      m.reply("♫ ♪♩ Never gonna give you op ♩♪♫")
-      m.reply("♫ ♪♩ Never gonna let you down ♩♪♫")
-      m.reply("♫ ♪♩ Never gonna run around ♩♪♫")
-      m.reply("♫ ♪♩ And let you kiicckk me! ♩♪♫")
+      if m.channel.opped?(m.user.nick)
+        m.reply("Never gonna give you op")
+        m.reply("Never gonna let you down")
+        m.reply("Never gonna run around")
+        m.reply("And let you kiicckk me!")
+      end
     end
 
 end
