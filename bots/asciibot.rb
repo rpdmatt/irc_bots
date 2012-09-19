@@ -5,6 +5,7 @@ class AsciiBot
 
     match /beavis (.+)/i, method: :beavis
     match /windoze/i, method: :windoze
+    match /roll/i, method: :roll
 
     def beavis(m, phrase)
       m.reply(" " + "_" * phrase.length)
@@ -36,6 +37,13 @@ class AsciiBot
      m.reply(" '-..-'|_.-;;-._|")
      m.reply(" '-..-'|   ||   |")
      m.reply(" '-..-'|_.-''-._|")
+    end
+
+    def roll(m)
+      m.reply("♫ ♪♩ Never gonna give you op ♩♪♫")
+      m.reply("♫ ♪♩ Never gonna let you down ♩♪♫")
+      m.reply("♫ ♪♩ Never gonna run around ♩♪♫")
+      m.reply("♫ ♪♩ And let you kiicckk me! ♩♪♫")
     end
 
 end
