@@ -4,7 +4,7 @@ class AsciiBot
   include Cinch::Plugin
 
     match /beavis (.+)/i, method: :beavis
-    match /windoze/, method: :windoze
+    match /windoze/i, method: :windoze
 
     def beavis(m, phrase)
       m.reply(" " + "_" * phrase.length)
