@@ -8,7 +8,7 @@ bot = Cinch::Bot.new do
     c.password = Creds.password
     c.nick = Creds.nick
     c.channels = Creds.channels
-    c.plugins.plugins = [GoogleBot, HelpBot, UrbanDictionary, SlapBot, CowsayBot, OpBot, BeavisBot, RouletteBot]
+    c.plugins.plugins = [GoogleBot, HelpBot, UrbanDictionary, SlapBot, CowsayBot, OpBot, AsciiBot, RouletteBot]
   end
 
   ["hello", "hey", "hi", "howdy"].each do |greeting|

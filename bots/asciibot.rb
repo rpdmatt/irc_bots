@@ -1,11 +1,12 @@
 require 'cinch'
 
-class BeavisBot
+class AsciiBot
   include Cinch::Plugin
 
-    match /beavis (.+)/
+    match /beavis (.+)/i, method: :beavis
+    match /windose/, method: :windose
 
-    def execute(m, phrase)
+    def beavis(m, phrase)
       m.reply(" " + "_" * phrase.length)
       m.reply("< #{phrase} >")
       m.reply(" " + "-" * phrase.length)
@@ -27,6 +28,14 @@ class BeavisBot
       m.reply("                 \\      |")
       m.reply("               __/-___-- -__")
       m.reply("              /            _ \\")
+    end
+
+    def windose(m)
+     m.reply("        _.-;;-._")
+     m.reply(" '-..-'|   ||   |")
+     m.reply(" '-..-'|_.-;;-._|")
+     m.reply(" '-..-'|   ||   |")
+     m.reply(" '-..-'|_.-''-._|")
     end
 
 end
