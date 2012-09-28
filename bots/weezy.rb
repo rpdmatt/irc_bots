@@ -27,8 +27,12 @@ class Weezy
 		lyricdoc = newdoc.xpath(".//div[@id='lyrics-body']/p")
 
 
-		lyricdoc.xpath(".//span[count(preceding::br)=#{rand(lyricdoc.xpath(".//br").length)}]").each do |item|
-			m.reply(item.text)
+	  lyric =	lyricdoc.xpath(".//span[count(preceding::br)=#{rand(lyricdoc.xpath(".//br").length)}]")
+
+    if lyric != []
+			lyric[0..6].each {|item| m.reply(item.text)}
+    else
+      lyricdoc.xpath(".//span[count(preceding::br)=#{rand(lyricdoc.xpath(".//br").length)}]")[0..6].each { |line| m.reply line.to_s }
 		end
 
 		end
