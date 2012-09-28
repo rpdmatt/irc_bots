@@ -1,5 +1,8 @@
 creds.rb
+<<<<<<< HEAD
 /bots/vimrc
 /bots/open-uri/*
 open-uri*
 nohup.out
+=======
+>>>>>>> a1399c062012eec9b5bd350e78a8d0388ca3e5ac
