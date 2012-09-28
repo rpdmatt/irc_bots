@@ -9,7 +9,7 @@ bot = Cinch::Bot.new do
     c.password = Creds.password
     c.nick = Creds.nick
     c.channels = Creds.channels
-    c.plugins.plugins = [TBS]
+    c.plugins.plugins = [TBS, Weezy]
   end
 
   ["hello", "hey", "hi", "howdy"].each do |greeting|
