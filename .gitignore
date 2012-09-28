@@ -1,1 +1,5 @@
 creds.rb
+/bots/vimrc
+/bots/*open-uri
+*open-uri
+nohup.out
