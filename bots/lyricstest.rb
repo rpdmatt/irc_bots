@@ -2,12 +2,12 @@ require 'nokogiri'
 require 'open-uri'
 require 'cinch'
 
-class TBS
-	include Cinch::Plugin
+#class TBS
+#	include Cinch::Plugin
 
-		match /tbs/
+#		match /tbs/
 
-		def execute(m)
+#		def execute(m)
 		url = "http://www.metrolyrics.com/taking-back-sunday-lyrics.html"
 
 		doc = Nokogiri::HTML(open(url))
@@ -28,8 +28,10 @@ class TBS
 
 
 		lyricdoc.xpath(".//span[count(preceding::br)=#{rand(lyricdoc.xpath(".//br").length)}]").each do |item|
-			m.reply(item.text)
+      if !item.text.start_with?('[')
+		  	puts item.text
+      end
 		end
 
-		end
-	end
+#		end
+#	end
