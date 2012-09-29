@@ -1,6 +1,8 @@
 require 'cinch'
 require './creds.rb'
-Dir["./bots/*.rb"].each { |file| require file }
+#Dir["./bots/*.rb"].each { |file| require file }
+require './bots/weezy.rb'
+require './bots/lyricstest.rb'
 
 bot = Cinch::Bot.new do
   configure do |c|
